@@ -21,12 +21,7 @@ class modeloProducto{
         $producto=$consulta->fetch(PDO::FETCH_OBJ);
         return ($producto);
     }
-    function obtenerCatProducto($id){
-        $consulta=$this->db->prepare("SELECT * FROM categorias WHERE ID=?");
-        $consulta->execute([$id]);
-        $cat=$consulta->fetch(PDO::FETCH_OBJ);
-        return ($cat);
-    }
+
     function obtenerProductosPorCat($idcat){
         $consulta=$this->db->prepare("SELECT * FROM productos WHERE id_categoria=?");
         $consulta->execute([$idcat]);

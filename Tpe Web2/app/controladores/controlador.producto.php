@@ -2,12 +2,16 @@
 
 require_once './app/modelos/modelo.producto.php';
 require_once './app/vistas/vista.producto.php';
+require_once './app/modelos/modelo.categoria.php';
+
 class controladorProducto{
     private $modelo;
+    private $modeloCat;
     private $vista;
     public function __construct(){
         $this->modelo=new modeloProducto();
         $this->vista=new vistaProducto();
+        $this->modeloCat=new modeloCategoria();
     }
 
     function mostrarProductos(){
@@ -31,11 +35,11 @@ class controladorProducto{
     function mostrarProducto($id){
         if($this->corroborarId($id)){
             $producto=$this->modelo->obtenerProducto($id);
-            $categoriaProd=$this->modelo->ObtenerCatProducto($producto->id_categoria);
+            $categoriaProd=$this->modeloCat->obtenerCategoria($producto->id_categoria);
             $this->vista->mostrarProducto($producto,$categoriaProd);
         }
         else{
-            echo "nefasto";
+            echo "no";
         }
     }
 }
