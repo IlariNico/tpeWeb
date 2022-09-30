@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-09-30 21:13:17
+/* Smarty version 4.2.1, created on 2022-09-30 21:36:23
   from 'C:\xampp3\htdocs\tpeWeb\Tpe Web2\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63373fcd34a5a2_73813696',
+  'unifunc' => 'content_63374537533981_10692709',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1d6e673fba5bf80c90b5e25269b7b2174558bbac' => 
     array (
       0 => 'C:\\xampp3\\htdocs\\tpeWeb\\Tpe Web2\\templates\\header.tpl',
-      1 => 1664553190,
+      1 => 1664566581,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_63373fcd34a5a2_73813696 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63374537533981_10692709 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,6 +53,17 @@ function content_63373fcd34a5a2_73813696 (Smarty_Internal_Template $_smarty_tpl)
                   <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="items-cat">Items X Cat</a>
                   </li>
+                  <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Administrar Productos
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="agregar-product">Agregar</a></li>
+                    <li><a class="dropdown-item" href="modificar-product">Modificar</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Eliminar</a></li>
+                  </ul>
+                </li>
                 </ul>
               </div>
             </div>

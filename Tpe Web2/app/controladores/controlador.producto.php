@@ -32,6 +32,11 @@ class controladorProducto{
         $this->vista->mostrarProductos($productos);
     }
 
+    function agregarProducto(){
+        $this->vista->mostrarFormIngreso();
+        $this->verificarDatos();
+    }
+
     function mostrarProducto($id){
         if($this->corroborarId($id)){
             $producto=$this->modelo->obtenerProducto($id);

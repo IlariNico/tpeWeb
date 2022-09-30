@@ -37,8 +37,11 @@ switch ($params[0]) {
             $controladorCategorias->mostrarCategoriasId();
         }
         
+        break;
+    case 'agregar-producto':
+        $controladorProductos->agregarPorducto();
         break;        
-    case 'add':
+    case 'add-cat':
         //$taskController->addTask();
         break;
     case 'delete':

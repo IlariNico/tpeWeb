@@ -17,4 +17,7 @@ class vistaProducto{
         $this->smarty->assign('categoria',$categoria);
         $this->smarty->display('detallesProducto.tpl');
         }
+    function mostrarFormIngreso(){
+        $this->smarty->display('formularioalta.tpl');
+    }    
 }
