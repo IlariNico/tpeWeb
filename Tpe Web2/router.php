@@ -24,6 +24,7 @@ switch ($params[0]) {
         $controladorProductos->mostrarProductos();
         break;
     case 'mostrarprod':
+        
         $controladorProductos->mostrarProducto($params[1]);
         break;
     case 'lista-cat':
@@ -46,7 +47,7 @@ switch ($params[0]) {
         break;
     case 'borrar':
         $id = $params[1];
-        $controladorProductos->borrarPorducto();
+        $controladorProductos->borrarProducto($id);
         break;
     default:
         echo('404 Page not found');

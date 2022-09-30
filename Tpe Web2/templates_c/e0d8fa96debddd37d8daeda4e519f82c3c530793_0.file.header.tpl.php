@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-01 00:15:04
+/* Smarty version 4.2.1, created on 2022-10-01 01:48:07
   from 'C:\xampp\htdocs\Tpe Web2\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63376a6840c098_30612985',
+  'unifunc' => 'content_63378037116f33_64179914',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e0d8fa96debddd37d8daeda4e519f82c3c530793' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Tpe Web2\\templates\\header.tpl',
-      1 => 1664575896,
+      1 => 1664581655,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_63376a6840c098_30612985 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63378037116f33_64179914 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +31,7 @@ function content_63376a6840c098_30612985 (Smarty_Internal_Template $_smarty_tpl)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/estilos.css">
     <title>TUDAI - TodoList</title>
 </head>
 <body>

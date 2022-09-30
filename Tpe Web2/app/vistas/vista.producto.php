@@ -19,5 +19,8 @@ class vistaProducto{
         }
     function mostrarFormIngreso(){
         $this->smarty->display('formularioalta.tpl');
+    }
+    function mostrarError(){
+        $this->smarty->display('error.tpl');
     }    
 }

@@ -21,7 +21,12 @@ class controladorProducto{
 
     private function corroborarId($id){
         if (isset($id)&&!empty($id)){
-            return true;
+            $p=$this->modelo->obtenerProducto($id);
+            if($p!=NULL){
+                return true;
+            }
+            else 
+                return false;
         }
         else
             return false;
@@ -59,6 +64,19 @@ class controladorProducto{
         
     }
 
+    function borrarProducto($id){
+        if($this->corroborarId($id)){
+            $producto=$this->modelo->obtenerProducto($id);
+            if($producto!=null){
+                $this->modelo->eliminarProducto($id);
+                header("Location: " . BASE_URL);
+            }
+            else{
+                $this->vista->mostrarError();
+            }
+        }
+    }
+
     function mostrarProducto($id){
         if($this->corroborarId($id)){
             $producto=$this->modelo->obtenerProducto($id);
@@ -66,7 +84,7 @@ class controladorProducto{
             $this->vista->mostrarProducto($producto,$categoriaProd);
         }
         else{
-            echo "no";
+            $this->vista->mostrarError();
         }
     }
 }

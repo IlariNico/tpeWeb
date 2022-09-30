@@ -32,4 +32,8 @@ class modeloProducto{
         $consulta=$this->db->prepare("INSERT INTO `productos`(`nombre`, `descripcion`, `marca`, `precio`, `id_categoria`) VALUES (?,?,?,?,?)");
         $consulta->execute([$datos['nombre'],$datos['descripcion'],$datos['marca'],$datos['precio'],$idcat]);
     }
+    function eliminarProducto($id){
+        $consulta=$this->db->prepare("DELETE FROM `productos` WHERE ID=?");
+        $consulta->execute([$id]);
+    }
 }
