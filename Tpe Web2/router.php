@@ -39,15 +39,14 @@ switch ($params[0]) {
         
         break;
     case 'agregar-producto':
-        $controladorProductos->agregarPorducto();
+        $controladorProductos->agregarProducto();
         break;        
     case 'add-cat':
         //$taskController->addTask();
         break;
-    case 'delete':
-        // obtengo el parametro de la acción
+    case 'borrar':
         $id = $params[1];
-        //$taskController->deleteTask($id);
+        $controladorProductos->borrarPorducto();
         break;
     default:
         echo('404 Page not found');

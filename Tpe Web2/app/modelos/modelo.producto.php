@@ -28,4 +28,8 @@ class modeloProducto{
         $productos=$consulta->fetchAll(PDO::FETCH_OBJ);
         return $productos;
     }
+    function insertarProducto($datos,$idcat){
+        $consulta=$this->db->prepare("INSERT INTO `productos`(`nombre`, `descripcion`, `marca`, `precio`, `id_categoria`) VALUES (?,?,?,?,?)");
+        $consulta->execute([$datos['nombre'],$datos['descripcion'],$datos['marca'],$datos['precio'],$idcat]);
+    }
 }

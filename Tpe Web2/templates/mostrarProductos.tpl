@@ -1,9 +1,20 @@
 {include file="header.tpl"}
 
-<ul>
+<ul class="list-group mt-4">
     {foreach from=$productos item=$producto }
         
-            <li> Nombre {$producto->nombre}, {$producto->marca} <a href='mostrarprod/{$producto->ID}'>Ver mas </a> </li>
+            <li class='list-group-item d-flex justify-content-between align-items-center'> 
+                
+                Nombre {$producto->nombre}, {$producto->marca} 
+                <div class="ml-auto">
+                <a class="btn btn-info " href='mostrarprod/{$producto->ID}'>
+                    Ver mas 
+                </a> 
+                <a class="btn btn-danger" href='borrar/{$producto->ID}'>
+                    eliminar 
+                </a>
+                </div>
+            </li>
         
        
     {/foreach}

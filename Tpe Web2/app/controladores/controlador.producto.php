@@ -32,9 +32,31 @@ class controladorProducto{
         $this->vista->mostrarProductos($productos);
     }
 
-    function agregarProducto(){
-        $this->vista->mostrarFormIngreso();
-        $this->verificarDatos();
+    function verificarDato($dato){
+        return (isset($dato)&&!empty($dato));
+    }
+
+    function verificarDatos(){
+        return ((isset($_POST['nombre'])&&!empty($_POST['nombre']))&&(isset($_POST['descripcion'])&&!empty($_POST['descripcion']))
+    &&(isset($_POST['marca'])&&!empty($_POST['marca']))&&(isset($_POST['precio'])&&!empty($_POST['precio']))&&
+    (isset($_POST['categoria'])&&!empty($_POST['categoria'])));
+    }
+
+    function agregarProducto(){    
+        if($this->verificarDatos()){
+            $idcat=$this->modeloCat->existeCat($_POST['categoria']);
+            if($this->verificarDato($idcat)){
+                $this->modelo->insertarProducto($_POST,$idcat);
+                header("Location: " . BASE_URL);
+            }
+            else
+            $this->vista->mostrarFormIngreso();
+        }
+        else{
+            
+            $this->vista->mostrarFormIngreso();
+        }
+        
     }
 
     function mostrarProducto($id){

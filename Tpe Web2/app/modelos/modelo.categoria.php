@@ -15,6 +15,14 @@ class modeloCategoria{
         return ($categorias);
     }
     
+    function existeCat($nombrecat){
+        $consulta= $this->db->prepare("SELECT * FROM categorias WHERE nombre=?");
+        $consulta->execute([$nombrecat]);
+        $categoria=$consulta->fetch(PDO::FETCH_OBJ);
+        if($categoria!=NULL)
+        return($categoria->ID);
+    }
+
     function obtenerCategoria($id){
         $consulta=$this->db->prepare("SELECT * FROM categorias WHERE ID=?");
         $consulta->execute([$id]);
