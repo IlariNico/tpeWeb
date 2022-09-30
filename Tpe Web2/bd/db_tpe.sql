@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-09-2022 a las 23:01:52
+-- Tiempo de generación: 30-09-2022 a las 21:00:07
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -18,8 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `db_puebatpe`
+-- Base de datos: `db_tpe`
 --
+CREATE DATABASE IF NOT EXISTS `db_tpe` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `db_tpe`;
 
 -- --------------------------------------------------------
 
@@ -29,15 +31,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categorias` (
   `ID` int(11) NOT NULL,
-  `nombre` varchar(25) NOT NULL
+  `nombre` varchar(25) NOT NULL,
+  `eslogan_marca` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `categorias`
 --
 
-INSERT INTO `categorias` (`ID`, `nombre`) VALUES
-(1, 'Perifericos');
+INSERT INTO `categorias` (`ID`, `nombre`, `eslogan_marca`) VALUES
+(1, 'Perifericos', '');
 
 -- --------------------------------------------------------
 
@@ -50,6 +53,7 @@ CREATE TABLE `productos` (
   `nombre` varchar(15) NOT NULL,
   `descripcion` text NOT NULL,
   `marca` varchar(10) NOT NULL,
+  `precio` double NOT NULL,
   `id_categoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -57,8 +61,8 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`ID`, `nombre`, `descripcion`, `marca`, `id_categoria`) VALUES
-(1, 'Death adder', 'Mouse gaming alto calibre', 'Razer', 1);
+INSERT INTO `productos` (`ID`, `nombre`, `descripcion`, `marca`, `precio`, `id_categoria`) VALUES
+(1, 'Death adder', 'Mouse gaming alto calibre', 'Razer', 0, 1);
 
 --
 -- Índices para tablas volcadas
