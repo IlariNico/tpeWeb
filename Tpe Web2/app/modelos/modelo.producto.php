@@ -28,6 +28,8 @@ class modeloProducto{
         $productos=$consulta->fetchAll(PDO::FETCH_OBJ);
         return $productos;
     }
+
+   
     function insertarProducto($datos,$idcat){
         $consulta=$this->db->prepare("INSERT INTO `productos`(`nombre`, `descripcion`, `marca`, `precio`, `id_categoria`) VALUES (?,?,?,?,?)");
         $consulta->execute([$datos['nombre'],$datos['descripcion'],$datos['marca'],$datos['precio'],$idcat]);
@@ -37,9 +39,6 @@ class modeloProducto{
         $consulta->execute([$id]);
     }
     function modificarProducto($id,$datos,$idcat){
-        var_dump($id);
-        var_dump($datos);
-        var_dump($idcat);
         $consulta=$this->db->prepare("UPDATE productos SET nombre=?,descripcion=?,marca=?,precio=?,id_categoria=? WHERE ID=?");
         $consulta->execute([$datos['nombre'],$datos['descripcion'],$datos['marca'],$datos['precio'],$idcat,$id]);
     }

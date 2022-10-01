@@ -29,13 +29,35 @@ class controladorCategoria{
 
     function agregarCategoria(){
         if($this->verificarDatos()){
-            $this->modelo->insertarCategoria($_POST);
+            if($this->verificarNombre($_POST['nombre'])){ //no insertar categorias repetidas
+                $this->modelo->insertarCategoria($_POST);
+            }
+            
             $this->vista->redireccionarHome();
-
         }
         else{
             $this->vista->mostrarFormIngreso();
         }
+    }
+
+    function modificarCategoria($id){
+        if($this->corroborarId($id)){
+            if($this->verificarDatos()){
+                if($this->verificarNombre($_POST['nombre'])){//no modificar una categoria a un nombre ya existente
+                    $this->modelo->modificarCategoria($id,$_POST);
+                }
+                
+                $this->vista->redireccionarHome();
+            }
+        $categoria=$this->modelo->obtenerCategoria($id);
+        $this->vista->mostrarFormModificarCat($categoria);
+        }
+        
+    }
+
+    function verificarNombre($nombre){
+        $cat=$this->modelo->obtenerCatNombre($nombre);
+        return($cat==NULL);
     }
 
     function borrarCategoria($id){

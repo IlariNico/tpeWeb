@@ -35,10 +35,28 @@ class modeloCategoria{
         return ($cat);
     }
 
+    function modificarCategoria ($id,$datos){
+        $consulta=$this->db->prepare("UPDATE `categorias` SET `nombre`=?,`descripcion`=? WHERE ID=?");
+        $consulta->execute([$datos['nombre'],$datos['descripcion'],$id]);
+    }
+
     function eliminarCategoria($id){
         $consulta=$this->db->prepare("DELETE FROM `categorias` WHERE ID=?");
-        $consulta->execute([$id]);
+        try {
+            $consulta->execute([$id]);
+        } catch (\Throwable $th) {
+            
+        }
+        
     }
+
+    function obtenerCatNombre($nombre){
+        $consulta=$this->db->prepare("SELECT 1 FROM categorias WHERE nombre=?");
+        $consulta->execute([$nombre]);
+        $cat=$consulta->fetch(PDO::FETCH_OBJ);
+        return ($cat);
+    }
+
 
     private function corroborarId($id){
         if (isset($id)&&!empty($id)){

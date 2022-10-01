@@ -16,9 +16,15 @@ class vistaCategoria{
         $this->smarty->display('mostrarCategoriasId.tpl');
     }
     function redireccionarHome(){
-        header("Location: " . BASE_URL ."/lista-cat");
+        header("Location: " . BASE_URL ."lista-cat");
     }
     
+    function mostrarFormModificarCat($datos){
+        $this->smarty->assign('Nombre',$datos->nombre);
+        $this->smarty->assign('Descripcion',$datos->descripcion);
+        $this->smarty->display('formulariomodcat.tpl');
+    }
+
     function mostrarFormIngreso(){
         
         $this->smarty->display('formularioaltacat.tpl');
