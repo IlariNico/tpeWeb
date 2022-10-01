@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-01 17:31:58
-  from 'C:\xampp\htdocs\Tpe Web2\templates\formularioalta.tpl' */
+/* Smarty version 4.2.1, created on 2022-10-01 19:43:46
+  from 'C:\xampp\htdocs\Tpe Web2\templates\formularioaltacat.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63385d6e4b5494_63341924',
+  'unifunc' => 'content_63387c52948364_22742681',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '2ee7a27e3d5f9febcc6ae5c96d3394772626a690' => 
+    'ee9b15c8cc97ce99300d345bb7719d5491bce3cd' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\Tpe Web2\\templates\\formularioalta.tpl',
-      1 => 1664587218,
+      0 => 'C:\\xampp\\htdocs\\Tpe Web2\\templates\\formularioaltacat.tpl',
+      1 => 1664646104,
       2 => 'file',
     ),
   ),
@@ -22,29 +22,17 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_63385d6e4b5494_63341924 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63387c52948364_22742681 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-<form action="agregar-producto" method="POST">
+<form action="agregar-cat" method="POST">
   <div class="mb-3">
-    <label  class="form-label">Nombre Producto</label>
+    <label  class="form-label">Nombre Cat</label>
     <input name="nombre" type="text" class="form-control" placeholder="Nombre">
   </div>
   <div class="mb-3">
     <label  class="form-label">Descripción</label>
     <input name="descripcion" type="text" class="form-control" placeholder="Descripcion" >
-  </div>
-  <div class="mb-3">
-    <label  class="form-label">Marca</label>
-    <input name="marca" type="text" class="form-control" placeholder="Marca" >
-  </div>
-  <div class="mb-3">
-    <label  class="form-label">Precio</label>
-    <input name="precio" type="number" class="form-control" placeholder="Precio" >
-  </div>
-  <div class="mb-3">
-    <label  class="form-label">Categoría</label>
-    <input name="categoria" type="text" class="form-control" placeholder="Categoria" >
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

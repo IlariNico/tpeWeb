@@ -23,11 +23,33 @@ class modeloCategoria{
         return($categoria->ID);
     }
 
+    function insertarCategoria($categoria){
+        $consulta=$this->db->prepare("INSERT INTO `categorias`(`nombre`, `descripcion`) VALUES (?,?)");
+        $consulta->execute([$categoria['nombre'],$categoria['descripcion']]);
+    }
+
     function obtenerCategoria($id){
         $consulta=$this->db->prepare("SELECT * FROM categorias WHERE ID=?");
         $consulta->execute([$id]);
         $cat=$consulta->fetch(PDO::FETCH_OBJ);
         return ($cat);
     }
-    
+
+    function eliminarCategoria($id){
+        $consulta=$this->db->prepare("DELETE FROM `categorias` WHERE ID=?");
+        $consulta->execute([$id]);
+    }
+
+    private function corroborarId($id){
+        if (isset($id)&&!empty($id)){
+            $p=$this->modelo->obtenerCategoria($id);
+            if($p!=NULL){
+                return true;
+            }
+            else 
+                return false;
+        }
+        else
+            return false;
+    }
 }

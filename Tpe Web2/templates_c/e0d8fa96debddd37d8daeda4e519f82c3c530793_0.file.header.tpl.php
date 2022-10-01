@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-01 01:48:07
+/* Smarty version 4.2.1, created on 2022-10-01 19:43:00
   from 'C:\xampp\htdocs\Tpe Web2\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63378037116f33_64179914',
+  'unifunc' => 'content_63387c2451c2c2_10604986',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e0d8fa96debddd37d8daeda4e519f82c3c530793' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Tpe Web2\\templates\\header.tpl',
-      1 => 1664581655,
+      1 => 1664646178,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_63378037116f33_64179914 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63387c2451c2c2_10604986 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,19 +51,11 @@ function content_63378037116f33_64179914 (Smarty_Internal_Template $_smarty_tpl)
                     <a class="nav-link" aria-current="page" href="lista-cat">Lista Categorias</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="items-cat">Items X Cat</a>
+                    <a class="nav-link" aria-current="page" href="agregar-producto">Agregar prod</a>
                   </li>
-                  <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Administrar Productos
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="agregar-producto">Agregar</a></li>
-                    <li><a class="dropdown-item" href="modificar-producto">Modificar</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Eliminar</a></li>
-                  </ul>
-                </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="agregar-cat">Agregar cat</a>
+                  </li>
                 </ul>
               </div>
             </div>

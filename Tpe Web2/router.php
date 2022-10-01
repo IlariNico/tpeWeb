@@ -24,32 +24,29 @@ switch ($params[0]) {
         $controladorProductos->mostrarProductos();
         break;
     case 'mostrarprod':
-        
         $controladorProductos->mostrarProducto($params[1]);
         break;
     case 'lista-cat':
         $controladorCategorias->mostrarCategorias();
         break;
     case 'items-cat':
-        if(isset($params[1])&&!empty($params[1])){
-            $controladorProductos->mostrarProductosPorCat($params[1]);
-        }
-        else{
-            $controladorCategorias->mostrarCategoriasId();
-        }
-        
+        $controladorProductos->mostrarProductosPorCat($params[1]);
         break;
     case 'agregar-producto':
         $controladorProductos->agregarProducto();
-        break;        
-    case 'add-cat':
-        //$taskController->addTask();
+        break;
+    case 'agregar-cat':
+        $controladorCategorias->agregarCategoria();
+        break;            
+    case 'modificar-producto':
+        $controladorProductos->modificarProducto($params[1]);
+        
         break;
     case 'borrar':
-        $id = $params[1];
-        $controladorProductos->borrarProducto($id);
+        $controladorProductos->borrarProducto($params[1]);
         break;
-    default:
-        echo('404 Page not found');
-        break;
+    case 'borrar-cat':
+        $controladorCategorias->borrarCategoria($params[1]);
+        break;    
+ 
 }

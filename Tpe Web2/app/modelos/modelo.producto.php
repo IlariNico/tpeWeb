@@ -36,4 +36,11 @@ class modeloProducto{
         $consulta=$this->db->prepare("DELETE FROM `productos` WHERE ID=?");
         $consulta->execute([$id]);
     }
+    function modificarProducto($id,$datos,$idcat){
+        var_dump($id);
+        var_dump($datos);
+        var_dump($idcat);
+        $consulta=$this->db->prepare("UPDATE productos SET nombre=?,descripcion=?,marca=?,precio=?,id_categoria=? WHERE ID=?");
+        $consulta->execute([$datos['nombre'],$datos['descripcion'],$datos['marca'],$datos['precio'],$idcat,$id]);
+    }
 }

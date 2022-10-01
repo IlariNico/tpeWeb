@@ -27,19 +27,11 @@
                     <a class="nav-link" aria-current="page" href="lista-cat">Lista Categorias</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="items-cat">Items X Cat</a>
+                    <a class="nav-link" aria-current="page" href="agregar-producto">Agregar prod</a>
                   </li>
-                  <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Administrar Productos
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="agregar-producto">Agregar</a></li>
-                    <li><a class="dropdown-item" href="modificar-producto">Modificar</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Eliminar</a></li>
-                  </ul>
-                </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="agregar-cat">Agregar cat</a>
+                  </li>
                 </ul>
               </div>
             </div>

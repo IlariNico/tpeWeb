@@ -8,6 +8,7 @@ class controladorProducto{
     private $modelo;
     private $modeloCat;
     private $vista;
+    
     public function __construct(){
         $this->modelo=new modeloProducto();
         $this->vista=new vistaProducto();
@@ -32,6 +33,7 @@ class controladorProducto{
             return false;
     }
 
+
     function mostrarProductosPorCat($idcat){
         $productos=$this->modelo->obtenerProductosPorCat($idcat);
         $this->vista->mostrarProductos($productos);
@@ -52,7 +54,7 @@ class controladorProducto{
             $idcat=$this->modeloCat->existeCat($_POST['categoria']);
             if($this->verificarDato($idcat)){
                 $this->modelo->insertarProducto($_POST,$idcat);
-                header("Location: " . BASE_URL);
+                $this->vista->redireccionarHome();
             }
             else
             $this->vista->mostrarFormIngreso();
@@ -69,7 +71,7 @@ class controladorProducto{
             $producto=$this->modelo->obtenerProducto($id);
             if($producto!=null){
                 $this->modelo->eliminarProducto($id);
-                header("Location: " . BASE_URL);
+                $this->vista->redireccionarHome();
             }
             else{
                 $this->vista->mostrarError();
@@ -86,5 +88,22 @@ class controladorProducto{
         else{
             $this->vista->mostrarError();
         }
+    }
+    function modificarProducto($id){
+        if($this->corroborarId($id)){
+            if($this->verificarDatos()){
+                $idcat=$this->modeloCat->existeCat($_POST['categoria']);
+                if($this->verificarDato($idcat)){
+                    $this->modelo->modificarProducto($id,$_POST,$idcat);
+                    $this->vista->redireccionarHome();
+                }
+            }
+            $producto=$this->modelo->obtenerProducto($id);
+            $cat=$this->modeloCat->obtenerCategoria($producto->id_categoria);
+            $this->vista->mostrarFormModificarProd($producto,$cat);
+        }
+        else
+            $this->vista->redireccionarHome();
+        
     }
 }

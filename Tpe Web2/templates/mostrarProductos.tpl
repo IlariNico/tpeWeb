@@ -13,6 +13,9 @@
                 <a class="btn btn-danger" href='borrar/{$producto->ID}'>
                     eliminar 
                 </a>
+                <a class="btn btn-success" href='modificar-producto/{$producto->ID}'>
+                    modificar 
+                </a>
                 </div>
             </li>
         

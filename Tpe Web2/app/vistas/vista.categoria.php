@@ -15,5 +15,13 @@ class vistaCategoria{
         $this->smarty->assign('categorias',$categorias);
         $this->smarty->display('mostrarCategoriasId.tpl');
     }
+    function redireccionarHome(){
+        header("Location: " . BASE_URL ."/lista-cat");
+    }
+    
+    function mostrarFormIngreso(){
+        
+        $this->smarty->display('formularioaltacat.tpl');
+    }
     
 }
