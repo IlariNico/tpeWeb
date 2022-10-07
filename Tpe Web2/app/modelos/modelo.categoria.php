@@ -15,12 +15,12 @@ class modeloCategoria{
         return ($categorias);
     }
     
-    function existeCat($nombrecat){
-        $consulta= $this->db->prepare("SELECT * FROM categorias WHERE nombre=?");
-        $consulta->execute([$nombrecat]);
+    function existeCat($id){
+        $consulta= $this->db->prepare("SELECT * FROM categorias WHERE ID=?");
+        $consulta->execute([$id]);
         $categoria=$consulta->fetch(PDO::FETCH_OBJ);
         if($categoria!=NULL)
-        return($categoria->ID);
+        return($id);
     }
 
     function insertarCategoria($categoria){
@@ -35,7 +35,8 @@ class modeloCategoria{
         return ($cat);
     }
 
-    function modificarCategoria ($id,$datos){
+    function modificarCategoria($id,$datos){
+        
         $consulta=$this->db->prepare("UPDATE `categorias` SET `nombre`=?,`descripcion`=? WHERE ID=?");
         $consulta->execute([$datos['nombre'],$datos['descripcion'],$id]);
     }
@@ -49,14 +50,6 @@ class modeloCategoria{
         }
         
     }
-
-    function obtenerCatNombre($nombre){
-        $consulta=$this->db->prepare("SELECT 1 FROM categorias WHERE nombre=?");
-        $consulta->execute([$nombre]);
-        $cat=$consulta->fetch(PDO::FETCH_OBJ);
-        return ($cat);
-    }
-
 
     private function corroborarId($id){
         if (isset($id)&&!empty($id)){

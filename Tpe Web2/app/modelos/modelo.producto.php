@@ -30,16 +30,18 @@ class modeloProducto{
     }
 
    
-    function insertarProducto($datos,$idcat){
-        $consulta=$this->db->prepare("INSERT INTO `productos`(`nombre`, `descripcion`, `marca`, `precio`, `id_categoria`) VALUES (?,?,?,?,?)");
-        $consulta->execute([$datos['nombre'],$datos['descripcion'],$datos['marca'],$datos['precio'],$idcat]);
+    function insertarProducto($datos,$ruta){
+        $consulta=$this->db->prepare("INSERT INTO `productos`(`nombre`,`imagen`,`descripcion`, `marca`, `precio`, `id_categoria`) VALUES (?,?,?,?,?,?)");
+        $consulta->execute([$datos['nombre'],$ruta,$datos['descripcion'],$datos['marca'],$datos['precio'],$datos['categoria']]);
     }
     function eliminarProducto($id){
         $consulta=$this->db->prepare("DELETE FROM `productos` WHERE ID=?");
         $consulta->execute([$id]);
     }
-    function modificarProducto($id,$datos,$idcat){
-        $consulta=$this->db->prepare("UPDATE productos SET nombre=?,descripcion=?,marca=?,precio=?,id_categoria=? WHERE ID=?");
-        $consulta->execute([$datos['nombre'],$datos['descripcion'],$datos['marca'],$datos['precio'],$idcat,$id]);
+    function modificarProducto($id,$datos,$idcat,$ruta){
+       
+        
+        $consulta=$this->db->prepare("UPDATE productos SET nombre=?,imagen=?,descripcion=?,marca=?,precio=?,id_categoria=? WHERE ID=?");
+        $consulta->execute([$datos['nombre'],$ruta,$datos['descripcion'],$datos['marca'],$datos['precio'],$datos['categoria'],$id]);
     }
 }

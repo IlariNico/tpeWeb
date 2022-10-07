@@ -26,8 +26,9 @@ class vistaCategoria{
     }
 
     function mostrarFormIngreso(){
-        
-        $this->smarty->display('formularioaltacat.tpl');
+        $this->smarty->assign('Nombre',"");
+        $this->smarty->assign('Descripcion',"");
+        $this->smarty->display('formulariomodcat.tpl');
     }
     
 }

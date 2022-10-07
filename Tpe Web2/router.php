@@ -42,7 +42,7 @@ switch ($params[0]) {
         $controladorProductos->modificarProducto($params[1]);
         break;
     case 'modificar-cat':
-        var_dump($params[1]);
+       
         $controladorCategorias->modificarCategoria($params[1]);
         break;
     case 'borrar':

@@ -1,25 +1,22 @@
 {include file="header.tpl"}
 
-<ul class="list-group mt-4">
+<section class="d-flex flex-row mt-3 flexflexible">
     {foreach from=$productos item=$producto }
         
-            <li class='list-group-item d-flex justify-content-between align-items-center'> 
-                
-                Nombre {$producto->nombre}, {$producto->marca} 
-                <div class="ml-auto">
-                <a class="btn btn-info " href='mostrarprod/{$producto->ID}'>
-                    Ver mas 
-                </a> 
-                <a class="btn btn-danger" href='borrar/{$producto->ID}'>
-                    eliminar 
-                </a>
-                <a class="btn btn-success" href='modificar-producto/{$producto->ID}'>
-                    modificar 
-                </a>
+        <div class="card ms-2 mt-2" style="width: 18rem;">
+            <img src="{$producto->imagen}" class="img-thumbnail" alt="{$producto->nombre}">
+            <div class="card-body ">
+                <h5 class="card-title">{$producto->nombre}</h5>
+                <p class="card-text">{$producto->descripcion}</p>
+                <div class="d-flex flex-row ocupatodo">
+                    <a href="mostrarprod/{$producto->ID}" class="btn btn-primary ">Ver</a>
+                    <a class="btn btn-danger" href='borrar/{$producto->ID}'>Eliminar </a>
+                    <a class="btn btn-success" href='modificar-producto/{$producto->ID}'>Modificar </a>
                 </div>
-            </li>
+            </div>
+        </div>
         
        
     {/foreach}
-</ul>
+</section>
 {include file="footer.tpl"}

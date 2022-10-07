@@ -51,17 +51,13 @@ class controladorProducto{
 
     function agregarProducto(){    
         if($this->verificarDatos()){
-            $idcat=$this->modeloCat->existeCat($_POST['categoria']);
-            if($this->verificarDato($idcat)){
-                $this->modelo->insertarProducto($_POST,$idcat);
-                $this->vista->redireccionarHome();
-            }
-            else
-            $this->vista->mostrarFormIngreso();
+            $ruta=$this->guardarImgProducto();
+            $this->modelo->insertarProducto($_POST,$ruta);
+            $this->vista->redireccionarHome();
         }
         else{
-            
-            $this->vista->mostrarFormIngreso();
+            $cat=$this->modeloCat->obtenerCategorias();
+            $this->vista->mostrarFormIngreso($cat);
         }
         
     }
@@ -74,7 +70,7 @@ class controladorProducto{
                 $this->vista->redireccionarHome();
             }
             else{
-                $this->vista->mostrarError();
+                $this->vista->redireccionarHome();
             }
         }
     }
@@ -83,24 +79,40 @@ class controladorProducto{
         if($this->corroborarId($id)){
             $producto=$this->modelo->obtenerProducto($id);
             $categoriaProd=$this->modeloCat->obtenerCategoria($producto->id_categoria);
+
             $this->vista->mostrarProducto($producto,$categoriaProd);
         }
         else{
-            $this->vista->mostrarError();
+            $this->vista->redireccionarHome();
         }
     }
+
+    function guardarImgProducto(){
+        if(empty($_FILES['imagen']['name'])){
+            $ruta="./img/predeterminado.jpg";
+        }
+        else{
+            $nombre_imagen=$_FILES['imagen']['name'] ;
+            $temporal=$_FILES['imagen']['tmp_name'] ;
+            $carpeta='./img' ;
+            $ruta=$carpeta.'/'.$nombre_imagen; 
+            move_uploaded_file($temporal,$carpeta.'/'.$nombre_imagen);
+        }
+        
+        return $ruta;
+    }
+
     function modificarProducto($id){
         if($this->corroborarId($id)){
             if($this->verificarDatos()){
-                $idcat=$this->modeloCat->existeCat($_POST['categoria']);
-                if($this->verificarDato($idcat)){
-                    $this->modelo->modificarProducto($id,$_POST,$idcat);
+                    $ruta=$this->guardarImgProducto();
+                    $this->modelo->modificarProducto($id,$_POST,$ruta);
                     $this->vista->redireccionarHome();
-                }
             }
             $producto=$this->modelo->obtenerProducto($id);
-            $cat=$this->modeloCat->obtenerCategoria($producto->id_categoria);
+            $cat=$this->modeloCat->obtenerCategorias();
             $this->vista->mostrarFormModificarProd($producto,$cat);
+            
         }
         else
             $this->vista->redireccionarHome();

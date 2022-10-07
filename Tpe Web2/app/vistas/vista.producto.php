@@ -10,27 +10,29 @@ class vistaProducto{
 
     function mostrarProductos($productos){
        $this->smarty->assign('productos',$productos);
+
        $this->smarty->display('mostrarProductos.tpl');
     }
     function mostrarProducto($producto,$categoria){
         $this->smarty->assign('producto',$producto);
         $this->smarty->assign('categoria',$categoria);
+        
         $this->smarty->display('detallesProducto.tpl');
         }
-    function mostrarFormIngreso(){
-        
-        $this->smarty->display('formularioalta.tpl');
+    function mostrarFormIngreso($cats){
+        $this->smarty->assign('Nombre',"");
+        $this->smarty->assign('Descripcion',"");
+        $this->smarty->assign('Precio',"");
+        $this->smarty->assign('Marca',"");
+        $this->smarty->assign('Categorias',$cats);
+        $this->smarty->display('formulariomod.tpl');
     }
-    function mostrarError(){
-        $this->smarty->display('error.tpl');
-    }
-    function mostrarFormModificarProd($producto,$cat){
+    function mostrarFormModificarProd($producto,$cats){
         $this->smarty->assign('Nombre',$producto->nombre);
         $this->smarty->assign('Descripcion',$producto->descripcion);
         $this->smarty->assign('Precio',$producto->precio);
         $this->smarty->assign('Marca',$producto->marca);
-        $this->smarty->assign('Categoria',$cat->nombre);
-        $this->smarty->assign('accion',0);
+        $this->smarty->assign('Categorias',$cats);
         $this->smarty->display('formulariomod.tpl');
     }
     function redireccionarHome(){
